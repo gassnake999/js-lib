@@ -1,5 +1,5 @@
 # js-lib
-自己收藏的js代码库
+My own collection of js code base
 
 # css-lib
-一些有趣的css属性
+Some interesting css properties
