@@ -1,0 +1,6 @@
+//https://www.zhangxinxu.com/wordpress/2018/10/scroll-behavior-scrollintoview-%E5%B9%B3%E6%BB%91%E6%BB%9A%E5%8A%A8/
+scroll-behavior: smooth; //浏览器平滑滚动
+
+//https://www.zhangxinxu.com/wordpress/2018/11/know-css-scroll-snap/
+scroll-snap-type: x mandatory;
+scroll-snap-align: start; //图片自动吸附
