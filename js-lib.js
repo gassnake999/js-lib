@@ -78,3 +78,28 @@ var scrollSmoothTo = function (position) {
 		}, false);
 	}
 })(750, 750);
+
+/**
+ @description 二维数组合并，可以是string，目前深度最多二维
+ @author choujiaojiao
+ @parmas {array - 目标数组}
+*/
+function mergeArray(array) {
+    let prevAry = array[0]
+    for (let i = 1; i < array.length; i++) {
+      prevAry = mergeResArray(prevAry, array[i])
+    }
+    return prevAry
+
+    function mergeResArray(prevAry, nextAry) {
+      prevAry = Array.isArray(prevAry) ? prevAry : prevAry.split(' ')
+      nextAry = Array.isArray(nextAry) ? nextAry : nextAry.split(' ')
+      let resAry = []
+      prevAry.forEach(prevItem => {
+        nextAry.forEach(nextItem => {
+          resAry.push(prevItem + nextItem)
+        })
+      })
+      return resAry
+    }
+  }
