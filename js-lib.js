@@ -111,31 +111,41 @@ function mergeArray(array) {
  @parmas {ar - 目标数组}
 */
 var quickSort = function(arr) {
-
 　　if (arr.length <= 1) { return arr; }
-
 　　var pivotIndex = Math.floor(arr.length / 2);
-
 　　var pivot = arr.splice(pivotIndex, 1)[0];
-
 　　var left = [];
-
 　　var right = [];
-
 　　for (var i = 0; i < arr.length; i++){
-
 　　　　if (arr[i] < pivot) {
-
 　　　　　　left.push(arr[i]);
-
 　　　　} else {
-
 　　　　　　right.push(arr[i]);
-
 　　　　}
-
 　　}
-
 　　return quickSort(left).concat([pivot], quickSort(right));
-
 };
+
+/**
+ @description 倒计时
+ @author choujiaojiao
+ @parmas {timestemp - 倒计时时间}
+*/
+function countDown(timestemp) {
+    //获取时间差
+    var timediff = Math.round(timestemp / 1000)
+    //获取还剩多少天
+    var day = parseInt(timediff / 3600 / 24)
+    //获取还剩多少小时
+    var hour = parseInt(timediff / 3600 % 24)
+    //获取还剩多少分钟
+    var minute = parseInt(timediff / 60 % 60)
+    //获取还剩多少秒
+    var second = timediff % 60
+    //当前时间戳减去一秒钟
+    timestemp = timestemp - 1000
+    if (timestemp < 0) return
+    setTimeout(function () {
+      show(timestemp)
+    }, 1000)
+  }
