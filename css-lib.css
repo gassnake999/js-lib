@@ -5,7 +5,7 @@ scroll-behavior: smooth; //浏览器平滑滚动
 scroll-snap-type: x mandatory;
 scroll-snap-align: start; //图片自动吸附
 
-//css实现滚动条头部指示
+//css实现滚动条头部progress
 body {
   background-image: linear-gradient(to right top, #ffcc00 50%, #eee 50%);
   background-size: 100% calc(100% - 100vh + 5px);
