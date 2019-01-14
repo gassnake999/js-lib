@@ -132,20 +132,40 @@ var quickSort = function(arr) {
  @parmas {timestemp - 倒计时时间}
 */
 function countDown(timestemp) {
-    //获取时间差
-    var timediff = Math.round(timestemp / 1000)
-    //获取还剩多少天
-    var day = parseInt(timediff / 3600 / 24)
-    //获取还剩多少小时
-    var hour = parseInt(timediff / 3600 % 24)
-    //获取还剩多少分钟
-    var minute = parseInt(timediff / 60 % 60)
-    //获取还剩多少秒
-    var second = timediff % 60
-    //当前时间戳减去一秒钟
-    timestemp = timestemp - 1000
-    if (timestemp < 0) return
-    setTimeout(function () {
-      show(timestemp)
-    }, 1000)
+	//获取时间差
+	var timediff = Math.round(timestemp / 1000)
+	//获取还剩多少天
+	var day = parseInt(timediff / 3600 / 24)
+	//获取还剩多少小时
+	var hour = parseInt(timediff / 3600 % 24)
+	//获取还剩多少分钟
+	var minute = parseInt(timediff / 60 % 60)
+	//获取还剩多少秒
+	var second = timediff % 60
+	//当前时间戳减去一秒钟
+	timestemp = timestemp - 1000
+	if (timestemp < 0) return
+	setTimeout(function () {
+	show(timestemp)
+	}, 1000)
+}
+
+/**
+ @description 简易版深拷贝
+ @author yck 掘金小册
+ @parmas {obj - 拷贝目标}
+*/
+function deepClone(obj) {
+  function isObject(o) {
+    return (typeof o === 'object' || typeof o === 'function') && o !== null
   }
+  if (!isObject(obj)) {
+    throw new Error('非对象')
+  }
+  let isArray = Array.isArray(obj)
+  let newObj = isArray ? [...obj] : { ...obj }
+  Reflect.ownKeys(newObj).forEach(key => {
+    newObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key]
+  })
+  return newObj
+}
