@@ -169,3 +169,43 @@ function deepClone(obj) {
   })
   return newObj
 }
+
+/**
+ @description 函数防抖
+ @author https://juejin.im/post/5c404329e51d4551e064a332
+ @parmas {fn - 执行函数}
+ @parmas {delay - 时间}
+*/
+function debounce(fn, delay) {
+  let timer = null;
+  return function () {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, delay);
+  }
+}
+
+/**
+ @description 函数节流
+ @author https://juejin.im/post/5c404329e51d4551e064a332
+ @parmas {fn - 执行函数}
+ @parmas {cycle - 节流时间}
+*/
+function throttle(fn, cycle) {
+  let start = Date.now();
+  let now;
+  let timer;
+  return function () {
+    now = Date.now();
+    clearTimeout(timer);
+    if (now - start >= cycle) {
+      fn.apply(this, arguments);
+      start = now;
+    } else {
+      timer = setTimeout(() => {
+        fn.apply(this, arguments);
+      }, cycle);
+    }
+  }
+}
