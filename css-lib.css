@@ -22,3 +22,6 @@ body::after {
   background: #fff;
   z-index: -1;
 }
+
+//锁定body
+overscroll-behavior: contain;
