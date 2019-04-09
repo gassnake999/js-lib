@@ -25,3 +25,19 @@ body::after {
 
 //锁定body
 overscroll-behavior: contain;
+
+//width auto height
+.constant-width-to-height-ratio {
+  background: #333;
+  width: 50%;
+}
+.constant-width-to-height-ratio::before {
+  content: '';
+  padding-top: 100%;
+  float: left;
+}
+.constant-width-to-height-ratio::after {
+  content: '';
+  display: block;
+  clear: both;
+}
