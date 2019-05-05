@@ -41,3 +41,23 @@ overscroll-behavior: contain;
   display: block;
   clear: both;
 }
+
+// html
+<div>姓名</div>
+<div>手机号码</div>
+<div>账号</div>
+<div>密码</div>
+
+// css文字两端对齐
+div {
+    margin: 10px 0; 
+    width: 100px;
+    border: 1px solid red;
+    text-align: justify;
+    text-align-last:justify
+}
+div:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
