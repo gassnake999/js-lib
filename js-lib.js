@@ -750,3 +750,8 @@ function AutoResponse(width = 750) {
     ? (target.style.fontSize = '80px')
     : (target.style.fontSize = (target.clientWidth / width) * 100 + 'px')
 }
+
+//多维数组转换一维数组
+const flatten = arr => arr.reduce(
+ (acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val), []
+)
